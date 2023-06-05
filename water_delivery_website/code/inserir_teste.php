@@ -4,8 +4,8 @@
 // função de insert - ajustar para tabela destino
 function db_insert_teste($fname, $birthday, $cellphone ,$myemail, $password ) {
 	global $conn;
-	$sql = "INSERT INTO sch2.tb_pessoa (nm_pessoa, dt_nascimento ,nu_telefone ,em_email, sh_senha) VALUES ('$fname', '$birthday','$cellphone','$myemail','$password')";
-    $conn->query($sql);
+	$sql = "INSERT INTO tb_pessoa VALUES ((select max(cd_pessoa)+1),'$fname', '$birthday','$cellphone','$myemail','$password')";
+    //$conn->query($sql);
 	echo($sql);
 	//return $conn->insert_id;
 	return null;
