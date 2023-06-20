@@ -4,6 +4,23 @@ include_once("conexao.php");
 
 $pesquisa = $_POST['codigo_pessoa'];
 
+/*
+ <section>
+    <div class="center"> 
+         <form action="../phpcode/pesquisa.php" method="post" name="formulario">
+            <label for="codigo_pessoa"><h1>Selecione sua cidade:</h1></label>
+            <select name="codigo_pessoa" id="codigo_pessoa">
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="3">3</option>
+            </select>
+            <input type="submit" name="enviar" value="Enviar">
+        </form>
+    </div><!-- fecha center-->
+    </section>
+ */
+
+
 ?>
 
 <!DOCTYPE html>
@@ -41,4 +58,6 @@ $pesquisa = $_POST['codigo_pessoa'];
 ?>
 </body>
 </html>
+
+
 
