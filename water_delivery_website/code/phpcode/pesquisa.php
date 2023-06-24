@@ -1,6 +1,6 @@
 <?php
 
-include_once("conexao.php");
+require_once("conexao.php");
 
 $pesquisa = $_POST['codigo_pessoa'];
 
@@ -40,7 +40,7 @@ $pesquisa = $_POST['codigo_pessoa'];
         </tr>
 <?php
 
-    $sql = "select * from tb_pessoa where cd_pessoa = $pesquisa" ;
+    /*$sql = "select * from tb_pessoa where cd_pessoa = $pesquisa" ;
     $insertion = pg_query($conn,$sql);
 
     while($registro = pg_fetch_array($insertion)){
@@ -54,7 +54,7 @@ $pesquisa = $_POST['codigo_pessoa'];
         echo "</tr>";
     }
     pg_close($conn);
-    echo "</table>";
+    echo "</table>";*/
 ?>
 </body>
 </html>
