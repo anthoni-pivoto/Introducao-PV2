@@ -1,6 +1,5 @@
 <?php
     
-//include('../back/conexao.php');
 include('../back/login.php');
     
 ?>
@@ -30,7 +29,7 @@ include('../back/login.php');
     <br><br><br><br>
     <section>
     <div class="center"> 
-        <form method="post" action="../phpcode/cadastro.php" class="tamanho">
+        <form method="post" action="../back/cadastro.php" class="tamanho">
             <fieldset class="tamanho2">
                 <legend>Create an account:</legend>
                 <label for="fname">Name:</label>
