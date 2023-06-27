@@ -1,6 +1,6 @@
 <?php
 
-$bd_host = "192.168.20.18";// http://200.19.1.18/pgadmin4/browser/ -- http://192.168.20.18/pgadmin4
+$bd_host = "200.19.1.18";// http://200.19.1.18/pgadmin4/browser/ -- http://192.168.20.18/pgadmin4
 $bd_port = 5432;
 $base_de_dados = "anthonimigliavasca";
 $bd_usuario = "anthonimigliavasca";

@@ -1,3 +1,9 @@
+<?php
+    
+//include('../back/conexao.php');
+include('../back/login.php');
+    
+?>
 <!DOCTYPE html>
 <html lang="py-br">
 <head>
@@ -15,8 +21,8 @@
                 <a href="./index_homepage.html" id="inicio">Home</a><!--opcoes do menu de navegação-->
                 <a href="./index_products.html" id="products">Products</a>
                 <a href="./index_about.html" id="about">About us</a>
-                <a href="./index_account.html" id="account" >Account</a>
-                <a href="./index_offers.html" id="offers">Limited Offers!</a>
+                <a href="./index_account.php" id="account" >Account</a>
+                <a href="./index_offers.php" id="offers">Limited Offers!</a>
             </div><!--fecha menu-->
         </div><!--fecha center-->
     </header>
@@ -40,7 +46,7 @@
                 <input type="submit" value="Finish">
             </fieldset>
         </form>
-        <form method="post" action="#" class="tamanho">
+        <form method="post" action="" class="tamanho">
             <fieldset class="tamanho2">
                 <legend>Enter account:</legend>
                 <label for="myemail">E-mail</label><br><br>
