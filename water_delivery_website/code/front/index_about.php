@@ -1,3 +1,10 @@
+<?php
+include('../back/login.php');
+if(!isset($_SESSION)){
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="py-br">
 <head>
@@ -10,14 +17,8 @@
 <body>
     <header>
         <div class="full">
-            <div class="logo"><a href="./index_homepage.html"><img src="../imgs/logo.png" id="logo"></a></div><!-- adicionando imagem-->
-            <div class="menu">
-                <a href="./index_homepage.html" id="inicio">Home</a><!--opcoes do menu de navegação-->
-                <a href="./index_products.html" id="products">Products</a>
-                <a href="./index_about.html" id="about">About us</a>
-                <a href="./index_account.php" id="account" >Account</a>
-                <a href="./index_offers.php" id="offers">Limited Offers!</a>
-            </div><!--fecha menu-->
+            <div class="logo"><a href="./index_homepage.php"><img src="../imgs/logo.png" id="logo"></a></div><!-- adicionando imagem-->
+            <?php require_once('./navbar.php');?>
         </div><!--fecha center-->
     </header>
     <hr width="90%" size="3px" color="white">
