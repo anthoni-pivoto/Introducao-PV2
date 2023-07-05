@@ -75,11 +75,11 @@ if(!isset($_SESSION)){
                 <td class="price">R$12,00</td>
             </tr>
         </table>
-        <form method="post" action="../back/cadastro_produto.php" class="form_produtc">
+        <form method="post" action="../back/cadastro_produto.php" class="form_product">
             <fieldset class="fldset">
                 <legend>Add product:</legend>
                 <label for="description" >Description:</label>
-                <input type="text" id="description" name="description" required><br>
+                <textarea name="description" id="description" cols="1" rows="5" required>20L gallon of coke...</textarea>
                 <label for="price">Price:</label>
                 <input type="number" name="price" id="price" required><br>
                 <input type="submit" value="Add">

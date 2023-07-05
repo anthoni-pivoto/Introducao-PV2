@@ -28,7 +28,7 @@ if(isset($_POST['myemail']) || isset($_POST['password'])){
             header("Location: ../front/logged.php");
             }
         else{
-            echo "Email ou senha incorretos";
+            echo "<script>alert(\"Email ou senha incorretos!\")</script>";
         }
     }
 }

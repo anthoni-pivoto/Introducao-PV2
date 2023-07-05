@@ -13,6 +13,7 @@ $sql_cd_pessoa = "(select max(cd_pessoa)+1 from tb_pessoa)";
 $sql = "INSERT INTO tb_pessoa VALUES ($sql_cd_pessoa,'$nome', '$nascimento','$telefone','$email','$senha')";
 $insertion = pg_query($conn,$sql);
 
+header("Location: ../front/loggerd.php");
 
 if(!$insertion){
 	echo "Dados inválidos";
