@@ -25,7 +25,7 @@ if(!isset($_SESSION)){
     <br><br><br><br>
     <section>
     <div class="center"> 
-        <table border="1" cellspacing="0" width="800" height="">
+        <table border="1" cellspacing="0" width="70%" height="">
             <tr>
                 <th>Products</th>
                 <th>price</th>
@@ -75,7 +75,16 @@ if(!isset($_SESSION)){
                 <td class="price">R$12,00</td>
             </tr>
         </table>
-        
+        <form method="post" action="../back/cadastro_produto.php" class="form_produtc">
+            <fieldset class="fldset">
+                <legend>Add product:</legend>
+                <label for="description" >Description:</label>
+                <input type="text" id="description" name="description" required><br>
+                <label for="price">Price:</label>
+                <input type="number" name="price" id="price" required><br>
+                <input type="submit" value="Add">
+            </fieldset>
+        </form>
     </div><!-- fecha center-->
     </section>
     <footer>
