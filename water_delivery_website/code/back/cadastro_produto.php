@@ -13,5 +13,8 @@ $insertion = pg_query($conn,$sql);
 if(!$insertion){
 	echo "Dados inválidos";
 }
+else{
+	header("Location: ../front/index_products.php");
+}
 
 ?>

@@ -3,6 +3,8 @@ include('../back/login.php');
 if(!isset($_SESSION)){
     session_start();
 }
+$sql = "select * from tb_produto order by vl_produto";
+$insertion = pg_query($conn,$sql);
 ?>
 
 <!DOCTYPE html>
@@ -29,62 +31,43 @@ if(!isset($_SESSION)){
             <tr>
                 <th>Products</th>
                 <th>price</th>
+                <?php if(@$_SESSION['id'] == 1){
+                    echo "<th>Delete</th>";
+                }?>
             </tr>
-            <tr>
-                <td>Support for 20L gallon</td>
-                <td class="price">R$60,00</td>
-            </tr>
-            <tr>
-                <td>20L gallon water pump</td>
-                <td class="price">R$20,00</td>
-            </tr>
-            <tr>
-                <td>Electric water pump for 20L gallon</td>
-                <td class="price">R$40,00</td>
-            </tr>
-            <tr>
-                <td>Disposable cups(200un)</td>
-                <td class="price">R$10,00</td>
-            </tr>
-            <tr>
-                <td>20L gallon refill</td>
-                <td class="price">R$15,00</td>
-            </tr>
-            <tr>
-                <td>20L gallon w/ hull</td>
-                <td class="price">R$32,00</td>
-            </tr>
-            <tr>
-                <td>5L bottle</td>
-                <td class="price">R$9,00</td>
-            </tr>
-            <tr>
-                <td>2L bottle</td>
-                <td class="price">R$5,00</td>
-            </tr>
-            <tr>
-                <td>Bale(6un) 2L bottle </td>
-                <td class="price">R$27,00</td>
-            </tr>
-            <tr>
-                <td>500ml bottle</td>
-                <td class="price">R$1,50</td>
-            </tr>
-            <tr>
-                <td>Bale(12un) 500ml bottle</td>
-                <td class="price">R$12,00</td>
-            </tr>
+            <?php
+            if(@$_SESSION['id'] == 1){
+                while($array_prod = pg_fetch_array($insertion)){
+                    echo "<tr>
+                    <td>". $array_prod['nm_produto'] ."</td>
+                    <td class=\"price\">R$". $array_prod['vl_produto'] .",00</td>
+                    <td><a href=\"../back/excluir.php?id=".$array_prod['cd_produto']."\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-trash3-fill\" viewBox=\"0 0 16 16\">
+                    <path d=\"M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z\"/>
+                    </svg></a></td></tr>";
+            }}
+            else{
+                while($array_prod = pg_fetch_array($insertion)){
+                echo "<tr>
+                <td>". $array_prod['nm_produto'] ."</td>
+                <td class=\"price\">R$". $array_prod['vl_produto'] .",00</td>
+                </tr>";
+            }}
+            ?>
         </table>
-        <form method="post" action="../back/cadastro_produto.php" class="form_product">
-            <fieldset class="fldset">
+        <?php
+        if(@$_SESSION['id'] == 1){
+            echo "<form method=\"post\" action=\"../back/cadastro_produto.php\" class=\"form_product\">
+            <fieldset class=\"fldset\">
                 <legend>Add product:</legend>
-                <label for="description" >Description:</label>
-                <textarea name="description" id="description" cols="1" rows="5" required>20L gallon of coke...</textarea>
-                <label for="price">Price:</label>
-                <input type="number" name="price" id="price" required><br>
-                <input type="submit" value="Add">
+                <label for=\"description\" >Description:</label>
+                <textarea name=\"description\" id=\"description\" cols=\"1\" rows=\"5\" required>20L gallon of coke...</textarea>
+                <label for=\"price\">Price:</label>
+                <input type=\"number\" name=\"price\" id=\"price\" required><br>
+                <input type=\"submit\" value=\"Add\">
             </fieldset>
-        </form>
+        </form>";
+        }
+        ?>
     </div><!-- fecha center-->
     </section>
     <footer>
